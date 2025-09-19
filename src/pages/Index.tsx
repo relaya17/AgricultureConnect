@@ -6,11 +6,15 @@ import FarmManagement from "@/components/FarmManagement";
 import Education from "@/components/Education";
 import ChatSystem from "@/components/ChatSystem";
 import Notifications from "@/components/Notifications";
+import HeroSection from "@/components/HeroSection";
+import FeaturesSection from "@/components/FeaturesSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import PricingSection from "@/components/PricingSection";
 
-type ViewType = "auth" | "dashboard" | "global" | "farm" | "education" | "chat" | "notifications";
+type ViewType = "landing" | "auth" | "dashboard" | "global" | "farm" | "education" | "chat" | "notifications";
 
 const Index = () => {
-  const [currentView, setCurrentView] = useState<ViewType>("auth");
+  const [currentView, setCurrentView] = useState<ViewType>("landing");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
@@ -20,6 +24,8 @@ const Index = () => {
         setCurrentView("dashboard");
       } else if (event.data.type === 'navigate') {
         setCurrentView(event.data.view);
+      } else if (event.data.type === 'show-landing') {
+        setCurrentView("landing");
       }
     };
 
@@ -27,10 +33,24 @@ const Index = () => {
     return () => window.removeEventListener('message', handleMessage);
   }, []);
 
+  // Landing Page
+  if (currentView === "landing") {
+    return (
+      <div className="min-h-screen">
+        <HeroSection />
+        <FeaturesSection />
+        <TestimonialsSection />
+        <PricingSection />
+      </div>
+    );
+  }
+
+  // Authentication
   if (!isAuthenticated) {
     return <AuthForm />;
   }
 
+  // App Views
   switch (currentView) {
     case "global":
       return <GlobalConnect />;
