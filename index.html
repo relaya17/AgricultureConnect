@@ -45,7 +45,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'GA_MEASUREMENT_ID', {
       page_title: 'AgriConnect - פלטפורמה חכמה לחקלאות',
@@ -58,8 +58,8 @@
 
   <!-- Web Vitals -->
   <script type="module">
-    import {getCLS, getFID, getFCP, getLCP, getTTFB} from 'https://unpkg.com/web-vitals@3/dist/web-vitals.js';
-    
+    import { getCLS, getFID, getFCP, getLCP, getTTFB } from 'https://unpkg.com/web-vitals@3/dist/web-vitals.js';
+
     function sendToAnalytics(metric) {
       // Send to Google Analytics
       gtag('event', metric.name, {
@@ -69,7 +69,7 @@
         non_interaction: true,
       });
     }
-    
+
     getCLS(sendToAnalytics);
     getFID(sendToAnalytics);
     getFCP(sendToAnalytics);

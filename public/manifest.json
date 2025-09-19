@@ -1,72 +1,91 @@
 {
-  "name": "AgriConnect - פלטפורמה חכמה לחקלאות",
-  "short_name": "AgriConnect",
-  "description": "הפלטפורמה החדשנית ביותר לחקלאות חכמה - חיבור חקלאים מכל העולם",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#10b981",
-  "orientation": "portrait-primary",
-  "scope": "/",
-  "lang": "he",
-  "dir": "rtl",
-  "categories": ["agriculture", "business", "productivity"],
-  "icons": [
-    {
-      "src": "/favicon.ico",
-      "sizes": "16x16 32x32 48x48",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
-  ],
-  "screenshots": [
-    {
-      "src": "/screenshot-desktop.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide"
-    },
-    {
-      "src": "/screenshot-mobile.png",
-      "sizes": "375x667",
-      "type": "image/png",
-      "form_factor": "narrow"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "דשבורד",
-      "short_name": "דשבורד",
-      "description": "גישה מהירה לדשבורד הראשי",
-      "url": "/dashboard",
-      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
-    },
-    {
-      "name": "ניהול חווה",
-      "short_name": "חווה",
-      "description": "ניהול החווה שלך",
-      "url": "/farm",
-      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
-    },
-    {
-      "name": "צ'אט",
-      "short_name": "צ'אט",
-      "description": "צ'אט עם מומחים",
-      "url": "/chat",
-      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
-    }
-  ],
-  "related_applications": [],
-  "prefer_related_applications": false
+    "name": "AgriConnect - פלטפורמה חכמה לחקלאות",
+    "short_name": "AgriConnect",
+    "description": "הפלטפורמה החדשנית ביותר לחקלאות חכמה - חיבור חקלאים מכל העולם",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#10b981",
+    "orientation": "portrait-primary",
+    "scope": "/",
+    "lang": "he",
+    "dir": "rtl",
+    "categories": [
+        "agriculture",
+        "business",
+        "productivity"
+    ],
+    "icons": [
+        {
+            "src": "/favicon.ico",
+            "sizes": "16x16 32x32 48x48",
+            "type": "image/x-icon"
+        },
+        {
+            "src": "/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/screenshot-desktop.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide"
+        },
+        {
+            "src": "/screenshot-mobile.png",
+            "sizes": "375x667",
+            "type": "image/png",
+            "form_factor": "narrow"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "דשבורד",
+            "short_name": "דשבורד",
+            "description": "גישה מהירה לדשבורד הראשי",
+            "url": "/dashboard",
+            "icons": [
+                {
+                    "src": "/icon-192.png",
+                    "sizes": "192x192"
+                }
+            ]
+        },
+        {
+            "name": "ניהול חווה",
+            "short_name": "חווה",
+            "description": "ניהול החווה שלך",
+            "url": "/farm",
+            "icons": [
+                {
+                    "src": "/icon-192.png",
+                    "sizes": "192x192"
+                }
+            ]
+        },
+        {
+            "name": "צ'אט",
+            "short_name": "צ'אט",
+            "description": "צ'אט עם מומחים",
+            "url": "/chat",
+            "icons": [
+                {
+                    "src": "/icon-192.png",
+                    "sizes": "192x192"
+                }
+            ]
+        }
+    ],
+    "related_applications": [],
+    "prefer_related_applications": false
 }

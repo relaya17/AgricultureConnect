@@ -13,8 +13,11 @@ import PricingSection from "@/components/PricingSection";
 import AIChatBot from "@/components/AIChatBot";
 import AnalyticsDashboard from "@/components/AnalyticsDashboard";
 import GamificationSystem from "@/components/GamificationSystem";
+import AdvancedAuthForm from "@/components/AdvancedAuthForm";
+import LanguageSelector from "@/components/LanguageSelector";
+import ABTestingDashboard from "@/components/ABTestingDashboard";
 
-type ViewType = "landing" | "auth" | "dashboard" | "analytics" | "gamification" | "global" | "farm" | "education" | "chat" | "notifications";
+type ViewType = "landing" | "auth" | "dashboard" | "analytics" | "gamification" | "ab-testing" | "global" | "farm" | "education" | "chat" | "notifications";
 
 const Index = () => {
   const [currentView, setCurrentView] = useState<ViewType>("landing");
@@ -41,6 +44,11 @@ const Index = () => {
       if (currentView === "landing") {
         return (
           <div className="min-h-screen">
+            {/* Language Selector */}
+            <div className="fixed top-4 left-4 z-50">
+              <LanguageSelector />
+            </div>
+            
             <HeroSection />
             <FeaturesSection />
             <TestimonialsSection />
@@ -52,7 +60,10 @@ const Index = () => {
 
   // Authentication
   if (!isAuthenticated) {
-    return <AuthForm />;
+    return <AdvancedAuthForm onAuthSuccess={(user) => {
+      setIsAuthenticated(true);
+      setCurrentView("dashboard");
+    }} />;
   }
 
       // App Views
@@ -61,6 +72,8 @@ const Index = () => {
           return <AnalyticsDashboard />;
         case "gamification":
           return <GamificationSystem />;
+        case "ab-testing":
+          return <ABTestingDashboard />;
         case "global":
           return <GlobalConnect />;
         case "farm":
