@@ -10,12 +10,16 @@ import HeroSection from "@/components/HeroSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import PricingSection from "@/components/PricingSection";
+import AIChatBot from "@/components/AIChatBot";
+import AnalyticsDashboard from "@/components/AnalyticsDashboard";
+import GamificationSystem from "@/components/GamificationSystem";
 
-type ViewType = "landing" | "auth" | "dashboard" | "global" | "farm" | "education" | "chat" | "notifications";
+type ViewType = "landing" | "auth" | "dashboard" | "analytics" | "gamification" | "global" | "farm" | "education" | "chat" | "notifications";
 
 const Index = () => {
   const [currentView, setCurrentView] = useState<ViewType>("landing");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isChatBotOpen, setIsChatBotOpen] = useState(false);
 
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
@@ -33,38 +37,43 @@ const Index = () => {
     return () => window.removeEventListener('message', handleMessage);
   }, []);
 
-  // Landing Page
-  if (currentView === "landing") {
-    return (
-      <div className="min-h-screen">
-        <HeroSection />
-        <FeaturesSection />
-        <TestimonialsSection />
-        <PricingSection />
-      </div>
-    );
-  }
+      // Landing Page
+      if (currentView === "landing") {
+        return (
+          <div className="min-h-screen">
+            <HeroSection />
+            <FeaturesSection />
+            <TestimonialsSection />
+            <PricingSection />
+            <AIChatBot isOpen={isChatBotOpen} onToggle={() => setIsChatBotOpen(!isChatBotOpen)} />
+          </div>
+        );
+      }
 
   // Authentication
   if (!isAuthenticated) {
     return <AuthForm />;
   }
 
-  // App Views
-  switch (currentView) {
-    case "global":
-      return <GlobalConnect />;
-    case "farm":
-      return <FarmManagement />;
-    case "education":
-      return <Education />;
-    case "chat":
-      return <ChatSystem />;
-    case "notifications":
-      return <Notifications />;
-    default:
-      return <Dashboard />;
-  }
+      // App Views
+      switch (currentView) {
+        case "analytics":
+          return <AnalyticsDashboard />;
+        case "gamification":
+          return <GamificationSystem />;
+        case "global":
+          return <GlobalConnect />;
+        case "farm":
+          return <FarmManagement />;
+        case "education":
+          return <Education />;
+        case "chat":
+          return <ChatSystem />;
+        case "notifications":
+          return <Notifications />;
+        default:
+          return <Dashboard />;
+      }
 };
 
 export default Index;
